@@ -3,11 +3,6 @@
         Dashboard
     </div>
 </template>
-<script>
-export default {
-    name: "DashBoard"
-}
+<script setup>
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
