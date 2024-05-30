@@ -1,7 +1,7 @@
 <template>
     <header class="flex justify-between items-center p-3 h-14 shadow bg-white">
         <button @click="emit('toggle-sidebar')" class="flex items-center justify-center rounded transition-colors w-8 h-8 text-gray-700 hover:bg-black/10">
-            <MenuIcon class="w-6" />
+            <Bars3Icon class="w-6" />
         </button>
         <Menu as="div" class="relative inline-block text-left">
             <MenuButton class="flex items-center">
@@ -27,7 +27,7 @@
                             active ? 'bg-violet-500 text-white' : 'text-gray-900',
                             'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                         ]">
-                            <LogoutIcon :active="active" class="mr-2 h-5 w-5 text-violet-400" aria-hidden="true" />
+                            <ArrowRightStartOnRectangleIcon :active="active" class="mr-2 h-5 w-5 text-violet-400" aria-hidden="true" />
                             Logout
                         </button>
                         </MenuItem>
@@ -40,6 +40,6 @@
 
 <script setup>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue'
-import { ChevronDownIcon } from '@heroicons/vue/24/solid'
+import { ChevronDownIcon, Bars3Icon, UserIcon, ArrowRightStartOnRectangleIcon } from '@heroicons/vue/24/solid'
 const emit = defineEmits(['toggle-sidebar'])
 </script>
