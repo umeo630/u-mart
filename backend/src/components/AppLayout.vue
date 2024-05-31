@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
 import Sidebar from "./Sidebar.vue";
 import TopHeader from "./TopHeader.vue";
 const { title } = defineProps({
@@ -21,6 +21,20 @@ const sidebarOpened = ref(true);
 function toggleSidebar() {
     sidebarOpened.value = !sidebarOpened.value
 }
+
+function updateSidebarState() {
+    sidebarOpened.value = window.innerWidth > 768;
+}
+
+onMounted(() => {
+    updateSidebarState();
+    window.addEventListener('resize', updateSidebarState)
+})
+
+onUnmounted(() => {
+    window.removeEventListener('resize', updateSidebarState)
+})
+
 </script>
 
 <style scoped></style>
