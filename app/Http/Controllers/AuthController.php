@@ -6,6 +6,7 @@ use App\Http\Requests\Auth\Login as LoginRequest;
 use App\Http\Service\AuthService;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class AuthController extends Controller
 {
@@ -18,6 +19,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
+        Log::info("login action", ['request' => $request->input()]);
         $credentials = $request->only(['email', 'password']);
         $remember = $request->input('remember') ?? false;
 
