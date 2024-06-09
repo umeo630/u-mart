@@ -93,7 +93,7 @@ const login = () => {
     store
         .dispatch("login", user)
         .then(() => {
-            router.push("/app/dashboard");
+            router.push({ name: "app.dashboard" });
         })
         .catch(() => {
             debugger;
